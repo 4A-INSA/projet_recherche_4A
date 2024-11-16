@@ -25,13 +25,11 @@ on the machine terminal of INSA
 pip install rasterio
 ```
 
-projet_data_extraction : tout sur l'extraction, la construction d'un dictionnaire... 
-tentative gmm : la même chose + tentative de code gmm qui marche pas (en tout cas sur mon ordi)
-
-clustering2.py : réalise le clustering sur le petit jeu de données => à présenter aux profs
-
-clustering_small_data.py : même code que clustering2.py mais réutilisable dans d'autres algos (code mis en forme avec des fonctions)
-
-clustering_kmeans_v2.py : même code que clustering2.py mais sans la manipulation relou du dico
+## Team notes
+- projet_data_extraction: Contains everything related to data extraction and dictionary construction.
+- tentative_gmm: Same as above, but also includes an attempt at implementing a GMM (though it doesn’t work, at least not on my computer).
+- clustering2.py: Performs clustering on the small dataset 
+- clustering_small_data.py: Same code as clustering2.py, but refactored into reusable functions for use in other algorithms.
+- clustering_kmeans_v2.py: Same code as clustering2.py, but without the cumbersome dictionary manipulation.
 
 ------------------------------------------------------------------------------------------------------------------------------------------ 
