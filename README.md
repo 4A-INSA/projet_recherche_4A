@@ -1,16 +1,19 @@
-# Projet-classifiction-esp-ces-v-g-tales
-installer rasterio sur linux
+# Projet-classifiction-especes-vegetales
+
+## Abstract
+The identification of plant species is essential for biodiversity analysis and the monitoring of environmental degradation. Many studies have highlighted the interest of optical remote sensing to map plant species on a given satellite image. Each pixel of the satellite image can be well paired with a plant since each plant has its own spectrum. However, the performance of mapping algorithms is affected by the presence of outliers: some plant species are a minority and should not be labelled. Rejecting these outliers would reduce pixel misclassification. Five classification algorithms (Regularized Logistic Regression with l1 or l2 regularization, Linear Support Vector Machine, Radial Basis Function Support Vector Machine and Random Forest) applied on an image give a vector of probabilities that a given pixel belongs to each tree species. Unfortunately, no efficient post-rejection algorithm has been developed yet in the field of hyperspectral and multispectral images. Our aim is to find relevant rejection methods which can be applied post classification on probability vectors. Boundaries between species and minor species must be rejected. We compare different clustering methods applied on probability vectors: K-means, SVM (Support Vector Machine), DBSCAN (Density-Based Spatial Clustering) and GMM (Gaussian Mixture Models). We improve our results taking the context into account. We define qualitative and quantitative ways to evaluate the rejection performance. K-means and SVM have significant visual results as they reject some specific points of interest on the image. K-means algorithm applied on the dataset Random Forest gives the best result with a True Rejection Rate of 57%. The False Rejection Rate obtained with K-means and SVM is quite low on every dataset, around 0.5-1%, which means that most of the time we do not reject wrongly. Our classification assists the ONERA laboratory (National Office for Aerospace Studies and Research) in their research. For example, to quantify contaminating anthropogenic impacts in soils, the vegetation condition is analysed and it is necessary to know the species corresponding to every pixel. Further research can use our results to compare the efficiency of a rejection option performed during classification with a rejection option performed post-classification.
+
+## Installation
+```
+install rasterio on linux
 $ sudo add-apt-repository ppa:ubuntugis/ppa
 $ sudo apt-get update
 $ sudo apt-get install python-numpy gdal-bin libgdal-dev
 $ pip install rasterio
 
-sur le terminal machine de l'insa
+on the machine terminal of INSA 
 pip install rasterio
-
-Importation des données et on voit qu'on a bien plus de 50% des données où on a proba appartenance à une classe >0.5. A voir si sa classe unclassed (numéro 0) c'est pas juste là où il y a du noir sur la photo (à vérifier) et correspondrait ainsi pas vraiment à une vraie classe rejet au sens de celle qu'on veut créer. 
-
-J'ai essayé d'utiliser un gmm tout codé que j'ai trouvé sur internet mais mon kernel plante (j'ai du me tromper je re regarderai). Vous avez le site dont je l'ai extrait. https://python-course.eu/machine-learning/expectation-maximization-and-gaussian-mixture-models-gmm.php
+```
 
 projet_data_extraction : tout sur l'extraction, la construction d'un dictionnaire... 
 tentative gmm : la même chose + tentative de code gmm qui marche pas (en tout cas sur mon ordi)
@@ -21,13 +24,4 @@ clustering_small_data.py : même code que clustering2.py mais réutilisable dans
 
 clustering_kmeans_v2.py : même code que clustering2.py mais sans la manipulation relou du dico
 
-TO DO LIST : 
-- comparer les 10 itérations (demande des profs)
-- extraire les caches (données réelles) et voir comment s'en servir pour vérifier les résultats 
-- réfléchir à la prise en compte du contexte
-- comparer les résultats obtenus avec les différentes règles de classification pour la construction du set d'entrainement
-- évaluation des algos, on peut calculer différentes choses : le nombre de pixels rejetés, le ratio nombre_rejets/nombre_pixels_apredire, NMI (normalized Mutual Information)
-- trouver comment fixer un rayon qui prenne en compte la variance
-- tester plusieurs seuils T sur kmeans 
-- extraire les données du set d'entraînement et les plot
 ------------------------------------------------------------------------------------------------------------------------------------------ 
